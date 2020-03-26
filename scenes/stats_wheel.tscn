@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/hud.gd" type="Script" id=1]
+[ext_resource path="res://assets/hud/hud.png" type="Texture" id=2]
+[ext_resource path="res://assets/hud/hud_over_circle.png" type="Texture" id=3]
+[ext_resource path="res://assets/hud/yellow_circle.png" type="Texture" id=4]
+[ext_resource path="res://assets/hud/blue_circle.png" type="Texture" id=5]
+[ext_resource path="res://assets/hud/red_circle.png" type="Texture" id=6]
+[ext_resource path="res://assets/hud/yellow_circle_under.png" type="Texture" id=7]
+
+[node name="stats_wheel" type="Control"]
+margin_left = 23.7841
+margin_top = 24.3645
+margin_right = 63.7841
+margin_bottom = 64.3645
+rect_scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy_bar" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 3.40424
+margin_top = 14.7703
+margin_right = 322.404
+margin_bottom = 321.77
+value = 30.0
+texture_progress = ExtResource( 6 )
+fill_mode = 5
+radial_fill_degrees = 180.0
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sanity_bar" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 3.40424
+margin_top = 14.7703
+margin_right = 322.404
+margin_bottom = 321.77
+value = 40.0
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+radial_fill_degrees = 180.0
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productivity_bg" type="TextureRect" parent="."]
+margin_left = 6.21593
+margin_top = 15.6355
+margin_right = 322.216
+margin_bottom = 318.636
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="productivity_bar" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 6.40424
+margin_top = 11.7457
+margin_right = 323.404
+margin_bottom = 324.746
+step = 0.2
+value = 50.0
+texture_progress = ExtResource( 4 )
+fill_mode = 4
+radial_fill_degrees = 359.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="whitecircle_small" type="TextureRect" parent="."]
+margin_left = 105.404
+margin_top = 107.77
+margin_right = 230.404
+margin_bottom = 236.77
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grid" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.862745 )
+margin_left = 9.05794
+margin_top = 16.4337
+margin_right = 317.058
+margin_bottom = 318.433
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

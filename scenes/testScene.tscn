@@ -1,0 +1,739 @@
+[gd_scene load_steps=65 format=2]
+
+[ext_resource path="res://assets/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/house_final/room_final_0007_house.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/colors/colors_0007_LP.png" type="Texture" id=4]
+[ext_resource path="res://scenes/dialogue_box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/dialog_container.gd" type="Script" id=6]
+[ext_resource path="res://assets/house_final/room_final_0002_corridoio_cucina.png" type="Texture" id=7]
+[ext_resource path="res://assets/colors/colors_0004_laptop.png" type="Texture" id=8]
+[ext_resource path="res://assets/colors/colors_0006_bed.png" type="Texture" id=9]
+[ext_resource path="res://assets/colors/colors_0008_bookshelf.png" type="Texture" id=10]
+[ext_resource path="res://assets/colors/colors_0005_piano.png" type="Texture" id=11]
+[ext_resource path="res://assets/colors/colors_0002_window.png" type="Texture" id=12]
+[ext_resource path="res://assets/colors/colors_0003_desktop.png" type="Texture" id=13]
+[ext_resource path="res://scenes/stats_wheel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/house_final/room_final_0001_porta_camear.png" type="Texture" id=15]
+[ext_resource path="res://assets/house_final/room_final_0003_porta_ripostiglio.png" type="Texture" id=16]
+[ext_resource path="res://assets/house_final/room_final_0004_suff_bagno.png" type="Texture" id=17]
+[ext_resource path="res://assets/house_final/room_final_0005_tavolo.png" type="Texture" id=18]
+[ext_resource path="res://assets/house_final/room_final_0006_pezzo_cucina.png" type="Texture" id=19]
+[ext_resource path="res://scenes/clock.tscn" type="PackedScene" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 218.478, 105.965 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.5499, 407.439 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 216.138, 50.5456 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 994.844, 28.7048 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 210.855, 49.7964 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 270.395, 68.3453 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 299.465, 31.4901 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 111.789, 103.608 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 208.953, 66.53 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 74.4082, 59.0021 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 356.6, 40.7528 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 47.9379, 209.44 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 67.545, 144.187 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 111.714, 176.731 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 168.692, 66.3849 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 39.847, 132.773 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 67.7392, 101.825 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 6.83301, 90.6973 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 95.8599, 34.391 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 165.88, 31.3422 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 179.835, 86.6143 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 53.5184, 48.3716 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 41.4008, 40.3527 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 46.3258, 43.1026 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 32.6976, 49.7935 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 278.136, 58.9623 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 97.2214, 39.3289 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 105.016, 92.9027 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 69.0991, 54.0228 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 72.0019, 97.5879 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 45.6894, 68.6235 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 108.387, 48.4344 )
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 160.956, 80.8209 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 107.172, 50.2101 )
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 35.5542, 81.779 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 76.8778, 169.056 )
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 55.4073, 69.0681 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 72.3303, 136.94 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 63.5061, 117.839 )
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 100.108, 57.1632 )
+
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 212.607, 52.153 )
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 48.9175, 100.553 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 43.9061, 35.5221 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 35.7203, 29.8086 )
+
+[node name="Scene" type="Node"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 587.689, 666.034 )
+scale = Vector2( 3.26697, 1.41026 )
+z_index = -5
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="room" type="Sprite" parent="."]
+position = Vector2( 417.512, 851.646 )
+z_index = -4
+texture = ExtResource( 2 )
+
+[node name="walls" type="StaticBody2D" parent="room"]
+position = Vector2( 560.452, -340.615 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -306.65, 543.55 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 272.61, 543.403 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -557.112, 198.534 )
+scale = Vector2( 2.34008, 0.598838 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -577.739, -215.59 )
+scale = Vector2( 1.51205, 0.402302 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 509.973, 22.6905 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -257.405, -458.68 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 381.543, -455.522 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -521.748, 1085.07 )
+scale = Vector2( 0.384937, 1.27187 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 576.442, 1087.86 )
+scale = Vector2( 0.503385, 1.4865 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -712.435, 596.697 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 827.844, 576.165 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 1601.79, 577.086 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 1588.11, 1120.24 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 1903.39, 837.763 )
+rotation = 1.57079
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 1197.44, 1018.63 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( 1196.97, 698.394 )
+shape = SubResource( 8 )
+
+[node name="pezzo_cucina" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1812.74, 167.305 )
+scale = Vector2( -1.17027, 0.934044 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1961.04, -247.835 )
+scale = Vector2( 1.15289, 2.01499 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1794.57, -276.218 )
+scale = Vector2( 1.50913, 1.44461 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1963.03, 51.1307 )
+scale = Vector2( 1.26642, 0.924907 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2444.97, -355.47 )
+scale = Vector2( 0.23892, 0.875699 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2099.31, -360.885 )
+scale = Vector2( 0.159198, 0.896682 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2075.15, 1057.98 )
+scale = Vector2( 0.773977, 1.18534 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -3032.76, 1055.93 )
+scale = Vector2( 0.300762, 2.61807 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1387.35, 1055.95 )
+scale = Vector2( 0.493975, 1.18534 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1052.39, 646.96 )
+scale = Vector2( 0.435401, -4.74926 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1052.39, 1037.44 )
+scale = Vector2( 0.418688, -2.59852 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2998.68, -257.586 )
+rotation = 1.57079
+scale = Vector2( 0.393484, 0.876446 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2995.95, 260.982 )
+rotation = 1.57079
+scale = Vector2( 0.478007, 0.874147 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1077.25, 321.751 )
+rotation = 4.71238
+scale = Vector2( 0.573697, 3.16063 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -1081.54, -237.364 )
+rotation = 4.71238
+scale = Vector2( 0.413141, 3.08573 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="room/walls"]
+position = Vector2( -2073.88, 792.432 )
+scale = Vector2( 1, 0.92 )
+shape = SubResource( 26 )
+
+[node name="YSort" type="YSort" parent="room"]
+
+[node name="player" parent="room/YSort" instance=ExtResource( 3 )]
+position = Vector2( -2205.31, -386.774 )
+
+[node name="sprite_tavolo" type="Sprite" parent="room/YSort"]
+position = Vector2( -1885.35, -381.188 )
+texture = ExtResource( 18 )
+offset = Vector2( 1885.35, 381.188 )
+
+[node name="sprite_porta_camear" type="Sprite" parent="room/YSort"]
+position = Vector2( 542.24, 292.77 )
+texture = ExtResource( 15 )
+offset = Vector2( -542.24, -292.77 )
+
+[node name="pezzo_cucina" type="Sprite" parent="room/YSort"]
+position = Vector2( -1199.79, -247.544 )
+texture = ExtResource( 19 )
+offset = Vector2( 1199.79, 247.544 )
+
+[node name="interagibile_objects" type="Node2D" parent="room/YSort"]
+
+[node name="bookshelf" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 967.036, -37.2317 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/bookshelf"]
+position = Vector2( -7.55273, -15.1052 )
+shape = SubResource( 9 )
+
+[node name="colors_0008_bookshelf" type="Sprite" parent="room/YSort/interagibile_objects/bookshelf"]
+visible = false
+position = Vector2( -403.26, -303.383 )
+texture = ExtResource( 10 )
+
+[node name="bed" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 943.119, -613.966 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/bed"]
+position = Vector2( -7.53662, 36.1761 )
+shape = SubResource( 10 )
+
+[node name="colors_0006_bed" type="Sprite" parent="room/YSort/interagibile_objects/bed"]
+visible = false
+position = Vector2( -382.343, 270.351 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="desktop" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 336.334, -648.93 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/desktop"]
+position = Vector2( -57.8948, -27.3684 )
+shape = SubResource( 11 )
+
+[node name="colors_0003_desktop" type="Sprite" parent="room/YSort/interagibile_objects/desktop"]
+visible = false
+position = Vector2( 227.442, 308.315 )
+texture = ExtResource( 13 )
+
+[node name="piano" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 168.02, -78.1447 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/piano"]
+position = Vector2( -2.44348, 23.6207 )
+shape = SubResource( 12 )
+
+[node name="colors_0005_piano" type="Sprite" parent="room/YSort/interagibile_objects/piano"]
+visible = false
+position = Vector2( 395.756, -262.47 )
+texture = ExtResource( 11 )
+
+[node name="laptop" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 176.733, -320.976 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/laptop"]
+shape = SubResource( 13 )
+
+[node name="colors_0004_laptop" type="Sprite" parent="room/YSort/interagibile_objects/laptop"]
+visible = false
+position = Vector2( 387.043, -19.6388 )
+texture = ExtResource( 8 )
+
+[node name="LP" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 563.776, -340.615 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/LP"]
+position = Vector2( 466.476, 50.7345 )
+shape = SubResource( 14 )
+
+[node name="colors_0007_LP" type="Sprite" parent="room/YSort/interagibile_objects/LP"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="window" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 625.577, -776.237 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/window"]
+position = Vector2( 0.949951, -4.75 )
+shape = SubResource( 15 )
+
+[node name="window_color" type="Sprite" parent="room/YSort/interagibile_objects/window"]
+position = Vector2( -64.2393, 431.721 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="como" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 933.582, 357.831 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/como"]
+position = Vector2( 4.64282, -12.3806 )
+shape = SubResource( 16 )
+
+[node name="table" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1892.41, -358.706 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/table"]
+position = Vector2( 8.90637, 16.8123 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room/YSort/interagibile_objects/table"]
+position = Vector2( -0.801392, -104.429 )
+scale = Vector2( 1, 0.663088 )
+shape = SubResource( 23 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room/YSort/interagibile_objects/table"]
+position = Vector2( -243.427, 37.273 )
+scale = Vector2( 1.22653, 1.12255 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room/YSort/interagibile_objects/table"]
+position = Vector2( 5.72778, 137.47 )
+shape = SubResource( 24 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room/YSort/interagibile_objects/table"]
+position = Vector2( 203.957, 44.8535 )
+scale = Vector2( 1.06926, 0.67519 )
+shape = SubResource( 25 )
+
+[node name="books_living_room" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2056.03, 682.888 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/books_living_room"]
+position = Vector2( -12.83, 8.16443 )
+shape = SubResource( 27 )
+
+[node name="parents_door" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 526.337, 728.22 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/parents_door"]
+position = Vector2( 3.83185, 16.4019 )
+shape = SubResource( 28 )
+
+[node name="kitchen_stove" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1011.08, -647.543 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/kitchen_stove"]
+position = Vector2( 19.3835, 21.9884 )
+scale = Vector2( 1.21899, 1 )
+shape = SubResource( 29 )
+
+[node name="chopping_board" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1406.43, -411.601 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/chopping_board"]
+position = Vector2( 3.67584, 2.92133 )
+scale = Vector2( 1.30787, 1.19367 )
+shape = SubResource( 30 )
+
+[node name="fridge" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -757.266, -618.176 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/fridge"]
+position = Vector2( -3.23218, 31.2333 )
+scale = Vector2( 1.11941, 1.00065 )
+shape = SubResource( 31 )
+
+[node name="washing_machine" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -348.883, 44.3998 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/washing_machine"]
+shape = SubResource( 32 )
+
+[node name="rec_bin" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -177.895, 89.474 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/rec_bin"]
+shape = SubResource( 33 )
+
+[node name="food_supplies" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -247.589, -682.91 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/food_supplies"]
+position = Vector2( 11.9232, -5.25519 )
+shape = SubResource( 34 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room/YSort/interagibile_objects/food_supplies"]
+position = Vector2( -120.709, 125.272 )
+scale = Vector2( 0.353789, 0.61182 )
+shape = SubResource( 34 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room/YSort/interagibile_objects/food_supplies"]
+position = Vector2( 145.608, 208.43 )
+scale = Vector2( 0.355397, 1.54465 )
+shape = SubResource( 34 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room/YSort/interagibile_objects/food_supplies"]
+position = Vector2( 114.505, 536.928 )
+scale = Vector2( 0.12936, 2.34712 )
+shape = SubResource( 34 )
+
+[node name="out_door" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1112.72, 699.515 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/out_door"]
+position = Vector2( -9.54218, 20.301 )
+scale = Vector2( 1.02716, -1.05022 )
+shape = SubResource( 35 )
+
+[node name="supermarioposter" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 90.9314, -552.69 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/supermarioposter"]
+position = Vector2( -11.2781, 27.2004 )
+shape = SubResource( 36 )
+
+[node name="couch" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1875.57, 208.956 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/couch"]
+position = Vector2( 12.8878, 24.3438 )
+shape = SubResource( 37 )
+
+[node name="tv_table" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2156.21, 230.486 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/tv_table"]
+position = Vector2( 2, -11.0001 )
+scale = Vector2( 1.13168, 1.53662 )
+shape = SubResource( 41 )
+
+[node name="tv" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2432.32, 246.341 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/tv"]
+position = Vector2( 8.14502, -16.2902 )
+shape = SubResource( 39 )
+
+[node name="dvds" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2431.13, 488.497 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/dvds"]
+position = Vector2( 1.99023, 0 )
+shape = SubResource( 40 )
+
+[node name="window_kitchen" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -1696.43, -718.428 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/window_kitchen"]
+shape = SubResource( 42 )
+
+[node name="cupboard" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2165.97, -682.14 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/cupboard"]
+position = Vector2( -21.2296, -1.99026 )
+shape = SubResource( 43 )
+
+[node name="photo_kitchen" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2449.02, -355.135 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/photo_kitchen"]
+shape = SubResource( 44 )
+
+[node name="plant_corridor" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( 339.165, 333.942 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/plant_corridor"]
+position = Vector2( -8.5116, 3.09509 )
+shape = SubResource( 45 )
+
+[node name="pouf" type="StaticBody2D" parent="room/YSort/interagibile_objects" groups=[
+"interagibile",
+]]
+position = Vector2( -2054.31, 478.333 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room/YSort/interagibile_objects/pouf"]
+position = Vector2( -2.94043, -6.61584 )
+shape = SubResource( 46 )
+
+[node name="sprite_corridoio_cucina" type="Sprite" parent="room"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 7 )
+
+[node name="sprite_porta_ripostiglio" type="Sprite" parent="room"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 16 )
+
+[node name="sprite_porta_bagno" type="Sprite" parent="room"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 17 )
+
+[node name="colors" type="Node2D" parent="room"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="dialogue_box" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="clock" parent="CanvasLayer" instance=ExtResource( 21 )]
+margin_left = 1663.99
+margin_top = 930.334
+margin_right = 1663.99
+margin_bottom = 930.334
+tick = 0.8
+
+[node name="stats_wheel" parent="CanvasLayer" instance=ExtResource( 14 )]
+margin_left = 44.3013
+margin_top = 39.564
+margin_right = 84.3013
+margin_bottom = 79.564
+[connection signal="finished" from="CanvasLayer/dialogue_box" to="room/YSort/player" method="_on_dialogue_box_finished"]

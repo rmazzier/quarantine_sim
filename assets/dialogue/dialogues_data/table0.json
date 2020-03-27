@@ -1,3 +1,4 @@
 { 
-	"0" : {"name":"Player", "text": "Sample dialog!"}
+	"0" : {"name":"Player", "text": "There's a sheet of paper with a checkbox list."},
+	"1" : {"name":"Player", "text": "I can't even read this handwriting... it must be dad's."}
 }

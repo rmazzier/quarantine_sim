@@ -1,3 +1,14 @@
 { 
-	"0" : {"name":"Player", "text": "Sample dialog!"}
+	"0" : {"name":"Player", "text": "There's a controller and a videogame box on the table."},
+	"1" : {"name":"Player", "text": "Playing videogames on the sofa is the best."},
+	"2" : {
+		"name":"Player", 
+		"text": "Which game should I play?", 
+		"choices":{
+			"1":"The First of Us",
+			"2":"No Man's Land",
+			"3":"Blue Alive Condemn",
+			"4":"Life Stranding",
+			"5":"Call of Doody"
+		}}
 }

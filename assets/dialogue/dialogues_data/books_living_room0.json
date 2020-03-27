@@ -1,3 +1,4 @@
 { 
-	"0" : {"name":"Player", "text": "Sample dialog!"}
+	"0" : {"name":"Player", "text": "There is a ton of books about literature and potery..."},
+	"1" : {"name":"Player", "text": "They belong to my mother of course."}
 }

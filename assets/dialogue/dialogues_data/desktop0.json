@@ -1,4 +1,12 @@
 { 
 	"0" : {"name":"Player", "text": "My desk is pretty tidy, that's strange."},
-	"1" : {"name":"Player", "text": "Who knows when I'll manage to save some money to get a second monitor."}
+	"1" : {"name":"Player", "text": "Who knows when I'll manage to save some money to get a second monitor."},
+	"2" : {
+		"name":"Player", 
+		"text": "What should I do?", 
+		"choices":{
+			"0":"Follow videolesson", 
+			"1":"Discord With Friends", 
+			"2":"Play videogame",
+			"3":"Nothing"}}
 }

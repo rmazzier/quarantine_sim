@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/dialogue/textbox.png" type="Texture" id=1]
 [ext_resource path="res://assets/dialogue/fonts/Back to School.ttf" type="DynamicFontData" id=2]
@@ -9,36 +9,68 @@ size = 55
 extra_spacing_bottom = 20
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "reduce_size"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.392292, 1 ),
+"update": 0,
+"values": [ Vector2( 1506, 226 ), Vector2( 800, 226 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "restore_size"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.241484, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 226 ), Vector2( 1506, 226 ) ]
+}
+
 [node name="dialogue_box" type="Control"]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="NinePatchRect" parent="."]
 modulate = Color( 1, 1, 1, 0.972549 )
 anchor_right = 100.0
-margin_left = 202.65
-margin_top = 787.724
-margin_right = 1708.65
-margin_bottom = 1013.72
+margin_left = 203.0
+margin_top = 788.0
+margin_right = 1709.0
+margin_bottom = 1014.0
 rect_pivot_offset = Vector2( 753, 0 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 256.67
-margin_top = 822.993
-margin_right = 1657.67
-margin_bottom = 977.993
+margin_left = 252.987
+margin_top = 830.359
+margin_right = 1653.99
+margin_bottom = 985.359
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "Hi everybody, this is a dialog box! I hope you'll enjoy it :) I hope there is enough space to fit all this text!
 "
-visible_characters = 0
 text = "Hi everybody, this is a dialog box! I hope you'll enjoy it :) I hope there is enough space to fit all this text!
 "
 scroll_active = false
@@ -53,6 +85,9 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-[connection signal="finished" from="." to="." method="_on_Node2D_finished"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/reduce_size = SubResource( 2 )
+anims/restore_size = SubResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

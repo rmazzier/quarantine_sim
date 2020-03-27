@@ -4,6 +4,10 @@ extends Node
 var sanity
 var energy
 var productivity
+var time_stop = false
+
+signal dialog_finished
+
 
 func _ready():
 	#prendi le stats dal save file!

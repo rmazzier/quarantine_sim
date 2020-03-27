@@ -88,6 +88,7 @@ func add_year():
 	pass
 
 func _on_tick_timeout():
-	add_minute(1)
-	update_datetime()
+	if Global.time_stop == false:
+		add_minute(1)
+		update_datetime()
 	pass # Replace with function body.

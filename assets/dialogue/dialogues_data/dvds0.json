@@ -1,3 +1,4 @@
 { 
-	"0" : {"name":"Player", "text": "Sample dialog!"}
+	"0" : {"name":"Player", "text": "It's a collection of dvds and blue rays."},
+	"1" : {"name":"Player", "text": "They mostly belong to my dad but I managed to buy some films lately."}
 }

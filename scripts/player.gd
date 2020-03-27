@@ -8,7 +8,6 @@ var velocity = Vector2.ZERO
 var looking_dir = Vector2.DOWN
 var can_interact = false
 var can_move = true
-var interacting = false
 
 #stats
 var sanity
@@ -21,22 +20,18 @@ onready var dialog_box = get_tree().get_root().get_node("Scene").find_node("dial
 
 func _ready():
 	set_process_input(true)
+	Global.connect("dialog_finished", self, "_on_dialogue_finished")
 	
 func _input(event):
 	if can_interact and event.is_action_pressed("ui_accept") and dialog_box.active == false:
 		var item = ray.get_collider()
 		if "dialogue_file_path" in item:
-			
 			var json_path = item.dialogue_file_path
 			dialog_box.interact(json_path)
-			interacting = true
+			can_move = false
 		
  
 func _physics_process(delta):
-	if interacting:
-		can_move = false
-	else:
-		can_move = true
 		
 	var input_vec = Vector2.ZERO
 	
@@ -61,7 +56,7 @@ func _physics_process(delta):
 		
 		
 	
-	move_and_slide(velocity)
+	var movement_info = move_and_slide(velocity)
 	ray.cast_to = looking_dir.normalized() * 70
 	
 	
@@ -89,7 +84,6 @@ func look_dir_to_str(vec2):
 		return "left"
 	pass
 
-
-func _on_dialogue_box_finished():
-	interacting = false
+func _on_dialogue_finished():
+	can_move = true
 	pass # Replace with function body.

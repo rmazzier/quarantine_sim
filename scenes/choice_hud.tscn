@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/hud/choices_0001_Layer-0.png" type="Texture" id=1]
+[ext_resource path="res://assets/hud/choices_0000_Layer-1.png" type="Texture" id=2]
+[ext_resource path="res://scripts/choice_hud.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "come_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("background:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1994.59, -0.25, 0, 0, -529.672, 1065.7, -0.25, 3.6438, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[node name="choice_hud" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.58472
+margin_top = 1.29236
+margin_right = -2.58472
+margin_bottom = 1.29236
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.972549 )
+margin_left = 1065.7
+margin_top = 895.3
+margin_right = 1802.7
+margin_bottom = 1004.3
+texture = ExtResource( 1 )
+region_rect = Rect2( 13.6405, 6.16959, 425.263, 254.737 )
+patch_margin_left = 56
+patch_margin_top = 36
+patch_margin_right = 40
+patch_margin_bottom = 45
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background"]
+margin_left = 103.0
+margin_top = 33.0
+margin_right = 713.0
+margin_bottom = 93.0
+rect_min_size = Vector2( 0, 10 )
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrow" type="TextureRect" parent="background"]
+margin_left = 39.5417
+margin_top = 38.1105
+margin_right = 103.542
+margin_bottom = 80.1105
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/come_in = SubResource( 1 )

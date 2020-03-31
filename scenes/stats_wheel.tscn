@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/hud.gd" type="Script" id=1]
 [ext_resource path="res://assets/hud/hud.png" type="Texture" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://assets/hud/blue_circle.png" type="Texture" id=5]
 [ext_resource path="res://assets/hud/red_circle.png" type="Texture" id=6]
 [ext_resource path="res://assets/hud/yellow_circle_under.png" type="Texture" id=7]
+[ext_resource path="res://assets/dialogue/fonts/Back to School.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/hud/sanity_icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/hud/productivity_icon.png" type="Texture" id=10]
+[ext_resource path="res://assets/hud/energy_icon.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 8 )
 
 [node name="stats_wheel" type="Control"]
 margin_left = 23.7841
@@ -19,7 +27,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="energy_bar" type="TextureProgress" parent="."]
+[node name="sanity_bar" type="TextureProgress" parent="."]
 modulate = Color( 1, 1, 1, 0.862745 )
 margin_left = 3.40424
 margin_top = 14.7703
@@ -34,7 +42,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sanity_bar" type="TextureProgress" parent="."]
+[node name="energy_bar" type="TextureProgress" parent="."]
 modulate = Color( 1, 1, 1, 0.862745 )
 margin_left = 3.40424
 margin_top = 14.7703
@@ -97,6 +105,82 @@ margin_bottom = 318.433
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 80.6916
+margin_top = 344.0
+margin_right = 619.692
+margin_bottom = 502.0
+rect_min_size = Vector2( 0, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sanity_text" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 539.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.686275, 0.254902, 0.254902, 1 )
+text = "Sanity"
+
+[node name="energy_text" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 539.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.235294, 0.203922, 0.384314, 1 )
+text = "Energy
+"
+scroll_active = false
+
+[node name="productivity_text" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 108.0
+margin_right = 539.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.917647, 0.866667, 0.176471, 1 )
+text = "Productivity"
+
+[node name="icons" type="VBoxContainer" parent="."]
+margin_left = 28.3738
+margin_top = 341.747
+margin_right = 68.3738
+margin_bottom = 507.747
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sanity_icon" type="TextureRect" parent="icons"]
+margin_right = 40.0
+margin_bottom = 35.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sanity_icon2" type="TextureRect" parent="icons"]
+margin_top = 50.0
+margin_right = 40.0
+margin_bottom = 92.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sanity_icon3" type="TextureRect" parent="icons"]
+margin_top = 107.0
+margin_right = 40.0
+margin_bottom = 156.0
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

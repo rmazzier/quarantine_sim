@@ -5,8 +5,8 @@
 		"name":"Player", 
 		"text": "What should I do?", 
 		"choices":{
-			"0":"Follow videolesson", 
+			"0":"Follow Videolesson", 
 			"1":"Discord With Friends", 
-			"2":"Play videogame",
+			"2":"Play Videogame",
 			"3":"Nothing"}}
 }

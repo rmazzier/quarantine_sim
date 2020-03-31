@@ -1,0 +1,49 @@
+{ 
+    "Discord With Friends" : {
+        "Sanity":"+10", 
+        "Energy": "+10",  
+        "Productivity": "-10",
+        "Time":"90"},
+    "Play Videogame" : {
+        "Sanity":"-10", 
+        "Energy": "+10",  
+        "Productivity": "-15",
+        "Time":"120"},
+    "Follow Videolesson" : {
+        "Sanity":"+0", 
+        "Energy": "-20",  
+        "Productivity": "+20",
+        "Time":"150"},
+    "Watch Film" : {
+        "Sanity":"-10", 
+        "Energy": "+10",  
+        "Productivity": "-15",
+        "Time":"140"},
+    "Make Music": {
+        "Sanity":"-5", 
+        "Energy": "-20",  
+        "Productivity": "+20",
+        "Time":"180"},
+    "Study Piano": {
+        "Sanity":"+0", 
+        "Energy": "-20",  
+        "Productivity": "+15",
+        "Time":"120"},
+    "Read a Book": {
+        "Sanity":"+0", 
+        "Energy": "-10",  
+        "Productivity": "+10",
+        "Time":"60"},
+    "Watch Outside": {
+        "Sanity":"+15", 
+        "Energy": "+5",  
+        "Productivity": "+0",
+        "Time":"15"},
+    "Sleep": {
+        "Sanity":"+10", 
+        "Energy": "+40",  
+        "Productivity": "+0",
+        "Time":"120"
+    }
+
+}

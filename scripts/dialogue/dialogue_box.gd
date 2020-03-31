@@ -26,21 +26,23 @@ func _input(event):
 				
 				#if this line of dialog has a choice, load che choice hud!
 				if "choices" in dialogue[str(page)]:
-					print(dialogue[str(page)]["choices"].values())
-					var choice_box_instance = choice_box_scene.instance()
-					var choices = dialogue[str(page)]["choices"].values()
-					
-					anim.play("reduce_size")
-					add_child(choice_box_instance)
-					for choice in choices:
-						choice_box_instance.add_option(choice)
-						pass
+					load_choice_hud()
 					
 			else:
 				Global.emit_signal("dialog_finished")
 		else:
 			text_label.visible_characters = text_label.get_total_character_count()
 
+func load_choice_hud():
+	#print(dialogue[str(page)]["choices"].values())
+	var choice_box_instance = choice_box_scene.instance()
+	var choices = dialogue[str(page)]["choices"].values()
+	
+	anim.play("reduce_size")
+	add_child(choice_box_instance)
+	for choice in choices:
+		choice_box_instance.add_option(choice)
+		pass
 
 func load_dialogue(file_path) -> Dictionary:
 	""" Parses JSON """

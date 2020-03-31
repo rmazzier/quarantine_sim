@@ -1,46 +1,55 @@
 extends Control
 
+onready var tween = $Tween
 onready var productivity_bar = $productivity_bar
 onready var sanity_bar = $sanity_bar
 onready var energy_bar = $energy_bar
 onready var player =  get_tree().get_root().get_node("Scene").find_node("player")
+onready var sanity_text = $VBoxContainer/sanity_text
+onready var energy_text = $VBoxContainer/energy_text
+onready var productivity_text = $VBoxContainer/productivity_text
 
 onready var bar_speed = 20
 
 func _ready():
+	init_hud()
 	set_process_input(true)
+	pass
+
+func init_hud():
 	productivity_bar.value = Global.productivity
 	sanity_bar.value = Global.sanity
 	energy_bar.value = Global.energy
+	
+	sanity_text.bbcode_text = "Sanity: %s" % Global.sanity
+	energy_text.bbcode_text = "Energy: %s" % Global.energy
+	productivity_text.bbcode_text = "Productivity: %s" % Global.productivity
 	pass
 
-func _process(delta):
-	if productivity_bar.value < Global.productivity:
-		productivity_bar.value += delta * bar_speed
-	if energy_bar.value < Global.energy:
-		energy_bar.value += delta * bar_speed
-	if sanity_bar.value < Global.sanity:
-		sanity_bar.value += delta * bar_speed
+export var anim_duration = 0.5
 
-func add_productivity(value):
-	if Global.productivity + value <= 100:
-		Global.productivity += value
-	else:
-		Global.productivity = 100
-
-func add_sanity(value):
-	if Global.sanity + value <= 100:
-		Global.sanity += value
-	else:
-		Global.sanity = 100
-
-func add_energy(value):
-	if Global.energy + value <= 100:
-		Global.energy += value
-	else:
-		Global.energy = 100
-
-#func update_wheel():
-#	productivity_bar.value = Global.productivity
-#	sanity_bar.value = Global.sanity
-#	energy_bar.value = Global.energy
+func update_wheel():
+	if productivity_bar.value != Global.productivity:
+		tween.interpolate_property(
+			productivity_bar, "value", 
+			productivity_bar.value, 
+			Global.productivity, 
+			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		productivity_text.bbcode_text = "Productivity: %s" % Global.productivity
+		tween.start()
+	if sanity_bar.value != Global.sanity:
+		tween.interpolate_property(
+			sanity_bar, "value", 
+			sanity_bar.value, 
+			Global.sanity, 
+			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		sanity_text.bbcode_text = "Sanity: %s" % Global.sanity
+		tween.start()
+	if energy_bar.value != Global.energy:
+		tween.interpolate_property(
+			energy_bar, "value", 
+			energy_bar.value, 
+			Global.energy, 
+			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		energy_text.bbcode_text = "Energy: %s" % Global.energy
+		tween.start()

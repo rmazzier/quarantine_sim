@@ -58,6 +58,8 @@ __meta__ = {
 }
 
 [node name="tick" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.001
 autostart = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="timeout" from="tick" to="." method="_on_tick_timeout"]

@@ -7,6 +7,7 @@ var productivity
 var time_stop = false
 var activities_dict
 onready var hud = get_tree().get_root().get_node("Scene").find_node("stats_wheel")
+onready var clock = get_tree().get_root().get_node("Scene").find_node("clock")
 signal dialog_finished
 
 var activities_path = "res://assets/dialogue/dialogues_data/activities.json"
@@ -38,21 +39,21 @@ func add_productivity(value):
 		productivity += value
 	else:
 		productivity = 100
-	hud.update_wheel()
+	hud.update_wheel(hud.anim_duration)
 
 func add_sanity(value):
 	if sanity + value <= 100:
 		sanity += value
 	else:
 		sanity = 100
-	hud.update_wheel()
+	hud.update_wheel(hud.anim_duration)
 
 func add_energy(value):
 	if energy + value <= 100:
 		energy += value
 	else:
 		energy = 100
-	hud.update_wheel()
+	hud.update_wheel(hud.anim_duration)
 
 func perform_activity(activity_name):
 	#takes activity_name as input and modifies the stats according to activities_dict

@@ -11,13 +11,5 @@
 		"choices":{
 			"0":"Read a Book", 
 			"1":"Nothing"}
-		},
-	"3" : {
-		"name":"Player", 
-		"text": "What Book?", 
-		"choices":{
-			"0":"Book 1", 
-			"1":"Book 2"}
-		}
-		
+		}		
 }

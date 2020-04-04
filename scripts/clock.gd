@@ -1,94 +1,39 @@
 extends Control
 
-var mins
-var hour
-
-var day
-var month
-var year
+var datetime_class = load("res://scripts/DateTime.gd")
+var datetime1
 
 onready var hour_text = $hour
 onready var date_text = $date
 onready var tick_timer = $tick
+onready var tween = $Tween
 
 export var tick = 0.2
 
 func _ready():
+	datetime1 = datetime_class.new()
+	datetime1.set_datetime_explicit(23, 45, 28, 2, 2020)
 	tick_timer.wait_time = tick
-	year = OS.get_datetime()["year"]
-	month = OS.get_datetime()["month"]
-	day = OS.get_datetime()["day"]
-	
-	hour = OS.get_datetime()["hour"]
-	mins = OS.get_datetime()["minute"] 
-	
-	update_datetime()
-	pass # Replace with function body.
+	update_datetime_hud()
 
-func update_datetime():
-	var hour_str = "0" + str(hour)
+func update_datetime_hud():
+	var hour_str = "0" + str(datetime1.hr)
 	hour_str = hour_str[-2] + hour_str[-1]
-	var mins_str = "0" + str(mins)
+	var mins_str = "0" + str(datetime1.mi)
 	mins_str = mins_str[-2] + mins_str[-1]
 	hour_text.bbcode_text = "%s : %s" % [hour_str, mins_str]
-	var day_str = "0" + str(day)
+	var day_str = "0" + str(datetime1.da)
 	day_str = day_str[-2] + day_str[-1]
-	var month_str = "0" + str(month)
+	var month_str = "0" + str(datetime1.mo)
 	month_str = month_str[-2] + month_str[-1]
-	date_text.bbcode_text = "%s / %s / %d" % [day_str, month_str, year]
-	
-func add_minute(amount):
-	if mins + amount < 60:
-		mins += amount
-	else:
-		mins = (mins+amount)%60
-		add_hour(1)
-	pass
-
-func add_hour(amount):
-	if hour + amount < 24:
-		hour += amount
-	else:
-		hour = (hour+amount) % 24
-		add_day()
-	pass
-
-func add_day():
-	# 30 giorni : 4, 6, 9, 11
-	if month in [4, 6, 9, 11]:
-		if day + 1 <= 30:
-			day += 1
-		else:
-			day = 1
-			add_month()
-	elif month == 2:
-		if day +1 <= 28:
-			day +=1
-		else:
-			day = 1
-			add_month()
-	else:
-		if day +1 <= 31:
-			day += 1
-		else:
-			day = 1
-			add_month()
-	pass
-
-func add_month():
-	if month +1 < 12:
-		month += 1
-	else:
-		month = 1
-		add_year()
-	pass
-
-func add_year():
-	year += 1
-	pass
+	date_text.bbcode_text = "%s / %s / %d" % [day_str, month_str, datetime1._Year]
 
 func _on_tick_timeout():
 	if Global.time_stop == false:
-		add_minute(1)
-		update_datetime()
-	pass # Replace with function body.
+		datetime1.add_minutes(1)
+		update_datetime_hud()
+
+func add_minutes_smooth(amount):
+	var target_datetime = datetime1.add_minutes(amount)
+	tick_timer.wait_time = 0.03
+	pass

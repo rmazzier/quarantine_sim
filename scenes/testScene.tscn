@@ -213,12 +213,12 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="room/walls"]
 position = Vector2( -521.748, 1085.07 )
-scale = Vector2( 0.384937, 1.27187 )
+scale = Vector2( 0.385903, 1.55418 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D27" type="CollisionShape2D" parent="room/walls"]
 position = Vector2( 576.442, 1087.86 )
-scale = Vector2( 0.503385, 1.4865 )
+scale = Vector2( 0.5086, 1.70291 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="room/walls"]
@@ -769,15 +769,15 @@ texture = ExtResource( 17 )
 [node name="dialogue_box" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="clock" parent="CanvasLayer" instance=ExtResource( 21 )]
-margin_left = 1684.44
-margin_top = 48.7669
-margin_right = 1684.44
-margin_bottom = 48.7669
-tick = 0.8
-
 [node name="stats_wheel" parent="CanvasLayer" instance=ExtResource( 14 )]
 margin_left = 44.3013
 margin_top = 39.564
 margin_right = 84.3013
 margin_bottom = 79.564
+
+[node name="clock" parent="CanvasLayer" instance=ExtResource( 21 )]
+margin_left = 1640.44
+margin_top = 98.4266
+margin_right = 1640.44
+margin_bottom = 98.4266
+tick = 0.5

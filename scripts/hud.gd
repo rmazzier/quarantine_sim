@@ -28,7 +28,7 @@ func init_hud():
 
 export var anim_duration = 0.5
 
-func update_wheel():
+func update_wheel(anim_duration):
 	if productivity_bar.value != Global.productivity:
 		tween.interpolate_property(
 			productivity_bar, "value", 

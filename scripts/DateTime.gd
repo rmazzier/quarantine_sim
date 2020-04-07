@@ -54,7 +54,6 @@ func add_minutes(amount):
 		_Minute = (_Minute + amount)%1440
 		add_days(1)
 	update_datetime()
-	#print_datetime()
 
 func add_days(amount):
 	if _Day + amount <= 365:
@@ -66,7 +65,6 @@ func add_days(amount):
 func print_datetime():
 	print("Hour: %d:%d, D-M-Y: %d-%d-%d"%[hr, mi, da, mo, _Year])
 	print("_Minute: %d, _Day: %d"%[_Minute, _Day])
-	pass
 
 func equals(other_datetime):
 	if (other_datetime._Minute == self._Minute and other_datetime._Day == self._Day and other_datetime._Year == self._Year):
@@ -101,7 +99,7 @@ func set_datetime_explicit(hour, minute, day, month, year):
 	_Minute = hour_to_Minute(hour, minute)
 	_Day = date_to_Day(day, month)
 
-	print_datetime()
+	#print_datetime()
 
 func distance_between(other_datetime):
 	""" Returns the distance in minutes between 2 datetimes"""
@@ -122,7 +120,6 @@ func distance_between(other_datetime):
 				525600-min_datetime._Day*1440 +  #minuti per finire l'anno minore
 				max_datetime._Day*1440 + # tempo attuale del giorno maggiore
 				(max_datetime._Year - min_datetime._Year - 1)*525600) # i minuti in tutti gli anni in mezzo
-	
 
 func _min(other_datetime):
 	""" Returns the smaller datetime between self and other_datetime

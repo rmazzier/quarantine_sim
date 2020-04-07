@@ -5,10 +5,14 @@ var sanity
 var energy
 var productivity
 var time_stop = false
+var can_move = true
 var activities_dict
+
 onready var hud = get_tree().get_root().get_node("Scene").find_node("stats_wheel")
 onready var clock = get_tree().get_root().get_node("Scene").find_node("clock")
+
 signal dialog_finished
+signal choice_executed
 
 var activities_path = "res://assets/dialogue/dialogues_data/activities.json"
 
@@ -21,7 +25,7 @@ func _ready():
 	productivity = 0
 	
 	#carica il file con tutte le attività a i relativi valori
-	activities_dict = load_json(activities_path)	
+	activities_dict = load_json(activities_path)
 	pass 
 
 func load_json(file_path) -> Dictionary:
@@ -58,19 +62,17 @@ func add_energy(value):
 func perform_activity(activity_name):
 	#takes activity_name as input and modifies the stats according to activities_dict
 	if activity_name in activities_dict:
-		print(activities_dict[activity_name])
 		var sanity_bonus = int(activities_dict[activity_name]["Sanity"])
 		var energy_bonus = int(activities_dict[activity_name]["Energy"])
 		var productivity_bonus = int(activities_dict[activity_name]["Productivity"])
-		var time = int(activities_dict[activity_name]["Time"])
+		var time_spent = int(activities_dict[activity_name]["Time"])
 		
-		if sanity + sanity_bonus < 0 or energy + energy_bonus < 0:
-			print("Can't execute!")
-		else:
-			if sanity_bonus != 0:
-				add_sanity(sanity_bonus)
-			if energy_bonus != 0:
-				add_energy(energy_bonus)
-			if productivity_bonus != 0 :
-				add_productivity(productivity_bonus)
+		#add bonuses
+		clock.target_datetime.add_minutes(time_spent)
+		if sanity_bonus != 0:
+			add_sanity(sanity_bonus)
+		if energy_bonus != 0:
+			add_energy(energy_bonus)
+		if productivity_bonus != 0 :
+			add_productivity(productivity_bonus)
 	pass

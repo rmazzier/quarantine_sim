@@ -7,7 +7,6 @@ export var deceleration = 3000
 var velocity = Vector2.ZERO
 var looking_dir = Vector2.DOWN
 var can_interact = false
-var can_move = true
 
 #stats
 var sanity
@@ -20,22 +19,20 @@ onready var dialog_box = get_tree().get_root().get_node("Scene").find_node("dial
 
 func _ready():
 	set_process_input(true)
-	Global.connect("dialog_finished", self, "_on_dialogue_finished")
 	
 func _input(event):
-	if can_interact and event.is_action_pressed("ui_accept") and dialog_box.active == false:
+	if can_interact and event.is_action_pressed("ui_accept") and dialog_box.active == false and dialog_box.visible == false:
 		var item = ray.get_collider()
 		if "dialogue_file_path" in item:
 			var json_path = item.dialogue_file_path
 			dialog_box.interact(json_path)
-			can_move = false
 		
  
 func _physics_process(delta):
 		
 	var input_vec = Vector2.ZERO
 	
-	if can_move:
+	if Global.can_move:
 	
 		input_vec.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		input_vec.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
@@ -84,6 +81,3 @@ func look_dir_to_str(vec2):
 		return "left"
 	pass
 
-func _on_dialogue_finished():
-	can_move = true
-	pass # Replace with function body.

@@ -7,7 +7,7 @@
 		"name":"Player", 
 		"text": "What should I do?", 
 		"choices":{
-			"0":"Look Outside?", 
+			"0":"Watch Outside", 
 			"1":"Nothing."}
 		}
 }

@@ -4,9 +4,13 @@ const choice_box_scene = preload("res://scenes/choice_hud.tscn")
 
 onready var text_label = $RichTextLabel
 onready var anim = $AnimationPlayer
+
+var choice_box_instance
 var page 
 var dialogue
 var active
+
+var timer2
 
 func _ready():
 	anim.play("restore_size")
@@ -17,25 +21,26 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and active:
-		if text_label.visible_characters > text_label.get_total_character_count():
+	if event.is_action_pressed("ui_accept") and active and visible:
+		if text_label.visible_characters >= text_label.get_total_character_count():
 			if page < dialogue.size()-1:
 				page += 1
 				text_label.bbcode_text = dialogue[str(page)]["text"]
 				text_label.visible_characters = 0
 				
-				#if this line of dialog has a choice, load che choice hud!
+				#if this line of dialog has a choice, load the choice hud!
 				if "choices" in dialogue[str(page)]:
 					load_choice_hud()
 					
-			else:
+			elif choice_box_instance == null:
 				Global.emit_signal("dialog_finished")
+				Global.time_stop = false
 		else:
 			text_label.visible_characters = text_label.get_total_character_count()
 
 func load_choice_hud():
 	#print(dialogue[str(page)]["choices"].values())
-	var choice_box_instance = choice_box_scene.instance()
+	choice_box_instance = choice_box_scene.instance()
 	var choices = dialogue[str(page)]["choices"].values()
 	
 	anim.play("reduce_size")
@@ -55,6 +60,7 @@ func load_dialogue(file_path) -> Dictionary:
 	return this_dialogue
 
 func interact(interagibile_file_path) -> void:
+	Global.can_move = false
 	show()
 	active = true 
 	Global.time_stop = true
@@ -62,9 +68,6 @@ func interact(interagibile_file_path) -> void:
 	page = 0
 	dialogue = load_dialogue(interagibile_file_path)
 	text_label.bbcode_text = dialogue[str(page)]["text"]
-
-func play_dialogue() -> void:
-	pass
 
 func _on_Timer_timeout():
 	if text_label.visible_characters <= text_label.get_total_character_count() + 1:
@@ -74,13 +77,15 @@ func _on_Timer_timeout():
 func _on_dialog_finished():
 	#hide....
 	self.hide()
-	anim.play("restore_size")
-	var timer2 = $Timer2
+	Global.can_move = true
+	#anim.play("restore_size")
+	timer2 = Timer.new()
+	add_child(timer2)
+	timer2.wait_time = 0.3
 	timer2.start()
+	yield(timer2, "timeout")
+	active = false
+	timer2 = null
 	
 	pass # Replace with function body.
 
-func _on_Timer2_timeout():
-	active = false
-	Global.time_stop = false
-	pass # Replace with function body.

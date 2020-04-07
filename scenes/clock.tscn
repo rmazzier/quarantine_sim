@@ -57,6 +57,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="debug_tick" type="RichTextLabel" parent="."]
+margin_left = -38.3417
+margin_top = 170.723
+margin_right = 437.658
+margin_bottom = 231.723
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="tick" type="Timer" parent="."]
 wait_time = 0.001
 autostart = true

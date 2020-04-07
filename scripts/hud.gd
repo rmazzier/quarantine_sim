@@ -28,13 +28,13 @@ func init_hud():
 
 export var anim_duration = 0.5
 
-func update_wheel(anim_duration):
+func update_wheel(anim_dur):
 	if productivity_bar.value != Global.productivity:
 		tween.interpolate_property(
 			productivity_bar, "value", 
 			productivity_bar.value, 
 			Global.productivity, 
-			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+			anim_dur, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		productivity_text.bbcode_text = "Productivity: %s" % Global.productivity
 		tween.start()
 	if sanity_bar.value != Global.sanity:
@@ -42,7 +42,7 @@ func update_wheel(anim_duration):
 			sanity_bar, "value", 
 			sanity_bar.value, 
 			Global.sanity, 
-			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+			anim_dur, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		sanity_text.bbcode_text = "Sanity: %s" % Global.sanity
 		tween.start()
 	if energy_bar.value != Global.energy:
@@ -50,6 +50,6 @@ func update_wheel(anim_duration):
 			energy_bar, "value", 
 			energy_bar.value, 
 			Global.energy, 
-			anim_duration, Tween.TRANS_EXPO, Tween.EASE_OUT)
+			anim_dur, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		energy_text.bbcode_text = "Energy: %s" % Global.energy
 		tween.start()

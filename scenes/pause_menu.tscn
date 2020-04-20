@@ -1,0 +1,295 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0006_resume_box.png" type="Texture" id=1]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0008_settings_box.png" type="Texture" id=2]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0009_quit_box.png" type="Texture" id=3]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0010_settings_box_hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0011_quit_box_hover.png" type="Texture" id=5]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0009_resume_box_hover.png" type="Texture" id=6]
+[ext_resource path="res://scripts/pause_menu.gd" type="Script" id=7]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0005_resume_icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0001_Settings_text.png" type="Texture" id=9]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0004_resume_text.png" type="Texture" id=10]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0003_settings_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup_0000_quit_text.png" type="Texture" id=12]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0002_Layer-2.png" type="Texture" id=13]
+[ext_resource path="res://resume_anim.tres" type="Animation" id=14]
+[ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0003_quit_icon.png" type="Texture" id=15]
+[ext_resource path="res://assets/bg.png" type="Texture" id=16]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float lod: hint_range(0, 5);
+
+void fragment() {
+	COLOR.rgb = textureLod(SCREEN_TEXTURE, SCREEN_UV, lod).rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/lod = 2.634
+
+[sub_resource type="Animation" id=4]
+resource_name = "quit_hovered_box"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("quit_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 1405, 317.5 ), Vector2( 1405, 300 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "resume_hovered_box"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("resume_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 50, 323 ), Vector2( 50, 300 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "settings_hovered_box"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("settings_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 728.5, 315 ), Vector2( 728.5, 300 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "settings_icon_rotate"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("settings_button/settings_icon:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "quit_icon_anim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("quit_button/quit_icon2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 219.592, 46.8595 ), Vector2( 219.592, 60 ) ]
+}
+
+[node name="pause_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blur" type="TextureRect" parent="."]
+material = SubResource( 7 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resume_button" type="TextureButton" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 50.0
+margin_top = -228.632
+margin_right = 514.0
+margin_bottom = 206.37
+focus_neighbour_right = NodePath("../settings_button")
+mouse_filter = 2
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resume_icon" type="TextureRect" parent="resume_button"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -84.5
+margin_top = 48.0
+margin_right = 84.5
+margin_bottom = 235.0
+rect_pivot_offset = Vector2( 76.1856, 94.1593 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="resume_button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -149.5
+margin_top = -124.0
+margin_right = 149.5
+margin_bottom = -47.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings_button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -231.5
+margin_top = -225.0
+margin_right = 231.5
+margin_bottom = 225.001
+focus_neighbour_left = NodePath("../resume_button")
+focus_neighbour_right = NodePath("../quit_button")
+mouse_filter = 2
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings_icon" type="TextureRect" parent="settings_button"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0472
+margin_top = 42.6545
+margin_right = 116.953
+margin_bottom = 261.655
+rect_pivot_offset = Vector2( 105.592, 109.722 )
+texture = ExtResource( 11 )
+
+[node name="TextureRect2" type="TextureRect" parent="settings_button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -155.0
+margin_top = -122.0
+margin_right = 155.0
+margin_bottom = -15.0
+texture = ExtResource( 9 )
+
+[node name="quit_button" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -515.0
+margin_top = -222.5
+margin_right = -49.9999
+margin_bottom = 222.5
+focus_neighbour_left = NodePath("../settings_button")
+mouse_filter = 2
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_icon" type="TextureRect" parent="quit_button"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -94.9188
+margin_top = 70.568
+margin_right = 103.081
+margin_bottom = 285.568
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_icon2" type="TextureRect" parent="quit_button"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -12.908
+margin_top = 46.8595
+margin_right = 185.092
+margin_bottom = 261.86
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="quit_button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -207.0
+margin_top = -115.0
+margin_right = 207.0
+margin_bottom = -35.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/quit_hovered_box = SubResource( 4 )
+anims/resume_hovered_box = SubResource( 1 )
+anims/settings_hovered_box = SubResource( 3 )
+
+[node name="resume_anim" type="AnimationPlayer" parent="."]
+anims/resume_anim = ExtResource( 14 )
+
+[node name="settings_anim" type="AnimationPlayer" parent="."]
+anims/settings_icon_rotate = SubResource( 2 )
+
+[node name="quit_anim" type="AnimationPlayer" parent="."]
+anims/quit_icon_anim = SubResource( 5 )
+[connection signal="focus_entered" from="resume_button" to="." method="_on_resume_button_focus_entered"]
+[connection signal="focus_exited" from="resume_button" to="." method="_on_resume_button_focus_exited"]
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="focus_entered" from="settings_button" to="." method="_on_settings_button_focus_entered"]
+[connection signal="focus_exited" from="settings_button" to="." method="_on_settings_button_focus_exited"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="focus_entered" from="quit_button" to="." method="_on_quit_button_focus_entered"]
+[connection signal="focus_exited" from="quit_button" to="." method="_on_quit_button_focus_exited"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

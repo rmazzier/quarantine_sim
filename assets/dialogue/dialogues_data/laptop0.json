@@ -1,4 +1,11 @@
 { 
 	"0" : {"name":"Player", "text": "It's my laptop and my MIDI keyboard."},
-	"1" : {"name":"Player", "text": "A really minimalistic setup, but I love it this way."}
+	"1" : {"name":"Player", "text": "A really minimalistic setup, but I love it this way."},
+	"2" :  {
+		"name":"Player", 
+		"text": "What should I do?", 
+		"choices":{
+			"1":"Make Music",
+			"2":"Nothing"
+		}}
 }

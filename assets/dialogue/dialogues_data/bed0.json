@@ -1,5 +1,6 @@
 { 
 	"0" : {"name":"Player", "text": "The bed is a bit messy but it still looks comfy."},
 	"1" : {"name":"Player", "text": "I always thought that making the bed was useless..."},
-	"2" : {"name":"Player", "text":"...until I went to study away from home. "}
+	"2" : {"name":"Player", "text":"...until I went to study away from home and discovered that no one secretely makes it for me during the day.. "},
+	"3" : {"name":"Player", "text": "What should I do?", "choices":{"1":"Sleep", "2": "Nothing"}}
 }

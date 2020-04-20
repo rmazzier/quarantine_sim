@@ -58,6 +58,7 @@ __meta__ = {
 }
 
 [node name="debug_tick" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -38.3417
 margin_top = 170.723
 margin_right = 437.658

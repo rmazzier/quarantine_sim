@@ -9,8 +9,11 @@ onready var vbox = $background/VBoxContainer
 onready var bg = $background
 onready var arrow = $background/arrow
 onready var anim = $AnimationPlayer
-onready var dialogue_box = get_tree().get_root().get_node("Scene").find_node("dialogue_box")
-onready var clock = get_tree().get_root().get_node("Scene").find_node("clock")
+onready var dialogue_box = get_tree().get_root().get_node("Main_Scene").find_node("dialogue_box")
+onready var clock = get_tree().get_root().get_node("Main_Scene").find_node("clock")
+
+onready var player = get_tree().get_root().get_node("Main_Scene").find_node("player")
+
 
 var arrow_index
 var arrow_starting_pos
@@ -92,7 +95,7 @@ func execute_option(index):
 			Global.perform_activity(options[index])
 			Global.emit_signal("choice_executed")
 		else:
-			print("can't execute!")
+			player.show_bubble("I can't do it right now...")
 			execute_null_action()
 	else:
 		execute_null_action()
@@ -126,7 +129,7 @@ func can_perform_activity(activity_name):
 	var productivity_bonus = int(Global.activities_dict[activity_name]["Productivity"])
 	var time_spent = int(Global.activities_dict[activity_name]["Time"])
 	
-	if Global.sanity + sanity_bonus < 0 or Global.energy + energy_bonus < 0:
+	if Global.sanity + sanity_bonus < 0 or Global.energy + energy_bonus < 0 or Global.productivity + productivity_bonus < 0:
 		return false
 	else:
 		return true
@@ -144,6 +147,7 @@ func draw_bonus_icons(text):
 	var bonus_sanity = int(Global.activities_dict[text]["Sanity"])
 	var bonus_energy = int(Global.activities_dict[text]["Energy"])
 	var bonus_productivity = int(Global.activities_dict[text]["Productivity"])
+	var time = int(Global.activities_dict[text]["Time"])
 	var bonuses = {
 		"sanity":bonus_sanity, 
 		"energy":bonus_energy, 

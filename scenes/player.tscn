@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/player_sprites/player_sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/player_bubble.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 loop = true
@@ -268,3 +269,6 @@ cast_to = Vector2( 0, 100 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="player_bubble" parent="." instance=ExtResource( 3 )]
+visible = false

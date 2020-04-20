@@ -15,7 +15,8 @@ var productivity
 
 onready var anim = $AnimationPlayer
 onready var ray = $RayCast2D
-onready var dialog_box = get_tree().get_root().get_node("Scene").find_node("dialogue_box")
+onready var dialog_box = get_tree().get_root().get_node("Main_Scene").find_node("dialogue_box")
+onready var bubble = $player_bubble
 
 func _ready():
 	set_process_input(true)
@@ -81,3 +82,13 @@ func look_dir_to_str(vec2):
 		return "left"
 	pass
 
+func show_bubble(text):
+	bubble.get_node("bubble_bg/bubble_text").bbcode_text = text
+	bubble.show()
+	var tim = Timer.new()
+	tim.wait_time = 3
+	add_child(tim)
+	tim.start()
+	yield(tim, "timeout")
+	bubble.hide()
+	pass

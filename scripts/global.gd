@@ -8,8 +8,10 @@ var time_stop = false
 var can_move = true
 var activities_dict
 
-onready var hud = get_tree().get_root().get_node("Scene").find_node("stats_wheel")
-onready var clock = get_tree().get_root().get_node("Scene").find_node("clock")
+onready var hud = get_tree().get_root().get_node("Main_Scene").find_node("stats_wheel")
+onready var clock = get_tree().get_root().get_node("Main_Scene").find_node("clock")
+const pause_menu_scene = preload("res://scenes/pause_menu.tscn")
+var pause_menu_instance = null
 
 signal dialog_finished
 signal choice_executed

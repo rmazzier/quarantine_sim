@@ -3,12 +3,9 @@
 	"1" : {"name":"Player", "text": "Playing videogames on the sofa is the best."},
 	"2" : {
 		"name":"Player", 
-		"text": "Which game should I play?", 
+		"text": "What should I do?", 
 		"choices":{
-			"1":"The First of Us",
-			"2":"No Man's Land",
-			"3":"Blue Alive Condemn",
-			"4":"Life Stranding",
-			"5":"Call of Doody"
+			"1":"Play Videogame",
+			"2":"Nothing"
 		}}
 }

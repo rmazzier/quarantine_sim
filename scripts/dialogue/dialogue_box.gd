@@ -5,6 +5,8 @@ const choice_box_scene = preload("res://scenes/choice_hud.tscn")
 onready var text_label = $RichTextLabel
 onready var anim = $AnimationPlayer
 
+onready var root = self.owner
+
 var choice_box_instance
 var page 
 var dialogue
@@ -14,7 +16,7 @@ var timer2
 
 func _ready():
 	anim.play("restore_size")
-	Global.connect("dialog_finished", self, "_on_dialog_finished")
+	root.connect("dialog_finished", self, "_on_dialog_finished")
 	hide()
 	active = false
 	page = 0
@@ -33,7 +35,7 @@ func _input(event):
 					load_choice_hud()
 					
 			elif choice_box_instance == null:
-				Global.emit_signal("dialog_finished")
+				root.emit_signal("dialog_finished")
 				Global.time_stop = false
 		else:
 			text_label.visible_characters = text_label.get_total_character_count()

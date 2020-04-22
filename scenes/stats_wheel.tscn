@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/hud.gd" type="Script" id=1]
 [ext_resource path="res://assets/hud/hud.png" type="Texture" id=2]
@@ -11,16 +11,15 @@
 [ext_resource path="res://assets/hud/sanity_icon.png" type="Texture" id=9]
 [ext_resource path="res://assets/hud/productivity_icon.png" type="Texture" id=10]
 [ext_resource path="res://assets/hud/energy_icon.png" type="Texture" id=11]
+[ext_resource path="res://assets/hud/clock_background.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 8 )
 
 [node name="stats_wheel" type="Control"]
-margin_left = 23.7841
-margin_top = 24.3645
-margin_right = 63.7841
-margin_bottom = 64.3645
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -99,9 +98,9 @@ __meta__ = {
 [node name="grid" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0.862745 )
 margin_left = 9.05794
-margin_top = 16.4337
+margin_top = 16.0687
 margin_right = 317.058
-margin_bottom = 318.433
+margin_bottom = 318.068
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
@@ -110,6 +109,19 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.372549 )
+margin_left = -16.0
+margin_top = 313.0
+margin_right = 439.0
+margin_bottom = 533.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 80.6916
@@ -127,6 +139,9 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.686275, 0.254902, 0.254902, 1 )
+custom_colors/font_color_shadow = Color( 0.219608, 0.243137, 0.286275, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
 text = "Sanity"
 
 [node name="energy_text" type="RichTextLabel" parent="VBoxContainer"]
@@ -136,6 +151,9 @@ margin_bottom = 104.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.235294, 0.203922, 0.384314, 1 )
+custom_colors/font_color_shadow = Color( 0.219608, 0.243137, 0.286275, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
 text = "Energy
 "
 scroll_active = false
@@ -147,6 +165,10 @@ margin_bottom = 158.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.917647, 0.866667, 0.176471, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.219608, 0.243137, 0.286275, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
 text = "Productivity"
 
 [node name="icons" type="VBoxContainer" parent="."]

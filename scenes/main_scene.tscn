@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://assets/house_final/room_final_0001_porta_camear.png" type="Texture" id=1]
 [ext_resource path="res://assets/house_final/room_final_0004_suff_bagno.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://scenes/dialogue_box.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/pause_menu.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/house_final/room_final_0006_pezzo_cucina.png" type="Texture" id=21]
+[ext_resource path="res://scripts/main_scene.gd" type="Script" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 218.478, 105.965 )
@@ -164,6 +165,7 @@ extents = Vector2( 58.3223, 50.7114 )
 extents = Vector2( 85.3499, 75.8379 )
 
 [node name="Main_Scene" type="Node"]
+script = ExtResource( 22 )
 
 [node name="bg" type="Sprite" parent="."]
 position = Vector2( 587.689, 666.034 )
@@ -343,7 +345,7 @@ shape = SubResource( 12 )
 [node name="YSort" type="YSort" parent="room"]
 
 [node name="player" parent="room/YSort" instance=ExtResource( 17 )]
-position = Vector2( 584.365, -358.512 )
+position = Vector2( 554.582, -447.86 )
 
 [node name="sprite_tavolo" type="Sprite" parent="room/YSort"]
 position = Vector2( -1885.35, -381.188 )
@@ -468,6 +470,7 @@ position = Vector2( 0.949951, -4.75 )
 shape = SubResource( 19 )
 
 [node name="window_color" type="Sprite" parent="room/YSort/interagibile_objects/window"]
+visible = false
 position = Vector2( -64.2393, 431.721 )
 z_index = -1
 texture = ExtResource( 6 )

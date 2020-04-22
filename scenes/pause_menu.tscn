@@ -17,11 +17,11 @@
 [ext_resource path="res://assets/hud/pausemenu/pause_menu_mockup.psd_0003_quit_icon.png" type="Texture" id=15]
 [ext_resource path="res://scripts/shaders/blur.shader" type="Shader" id=16]
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 16 )
 shader_param/variance = 1e+09
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "quit_hovered_box"
 length = 0.6
 loop = true
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1405, 317.5 ), Vector2( 1405, 300 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ Vector2( 50, 323 ), Vector2( 50, 300 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ Vector2( 728.5, 315 ), Vector2( 728.5, 300 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -112,7 +112,8 @@ __meta__ = {
 }
 
 [node name="blur" type="ColorRect" parent="."]
-material = SubResource( 12 )
+visible = false
+material = SubResource( 1 )
 anchor_right = 1.012
 anchor_bottom = 1.02
 margin_right = -23.0402
@@ -121,13 +122,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="darken" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.998818, 0.997959 )
+color = Color( 0, 0, 0, 0.372549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="resume_button" type="TextureButton" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 50.0
-margin_top = -228.632
+margin_top = -217.0
 margin_right = 514.0
-margin_bottom = 206.37
+margin_bottom = 218.002
 focus_neighbour_right = NodePath("../settings_button")
 mouse_filter = 2
 texture_normal = ExtResource( 6 )
@@ -235,7 +245,7 @@ __meta__ = {
 [node name="quit_icon2" type="TextureRect" parent="quit_button"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -12.908
+margin_left = -12.9081
 margin_top = 46.8595
 margin_right = 185.092
 margin_bottom = 261.86
@@ -259,18 +269,18 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/quit_hovered_box = SubResource( 10 )
-anims/resume_hovered_box = SubResource( 4 )
-anims/settings_hovered_box = SubResource( 11 )
+anims/quit_hovered_box = SubResource( 2 )
+anims/resume_hovered_box = SubResource( 3 )
+anims/settings_hovered_box = SubResource( 4 )
 
 [node name="resume_anim" type="AnimationPlayer" parent="."]
 anims/resume_anim = ExtResource( 14 )
 
 [node name="settings_anim" type="AnimationPlayer" parent="."]
-anims/settings_icon_rotate = SubResource( 6 )
+anims/settings_icon_rotate = SubResource( 5 )
 
 [node name="quit_anim" type="AnimationPlayer" parent="."]
-anims/quit_icon_anim = SubResource( 7 )
+anims/quit_icon_anim = SubResource( 6 )
 [connection signal="focus_entered" from="resume_button" to="." method="_on_resume_button_focus_entered"]
 [connection signal="focus_exited" from="resume_button" to="." method="_on_resume_button_focus_exited"]
 [connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]

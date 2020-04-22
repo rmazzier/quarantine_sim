@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pause_menu_mockup.psd_0009_resume_box_hover.png-97a5e97af9d850315e305c2dec13d01e.stex"
+path="res://.import/title_screen_0007_Load.png-f8e6edfd17412cd2a25fc77221a0d4c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/pausemenu/pause_menu_mockup.psd_0009_resume_box_hover.png"
-dest_files=[ "res://.import/pause_menu_mockup.psd_0009_resume_box_hover.png-97a5e97af9d850315e305c2dec13d01e.stex" ]
+source_file="res://assets/title_screen/title_screen_0007_Load.png"
+dest_files=[ "res://.import/title_screen_0007_Load.png-f8e6edfd17412cd2a25fc77221a0d4c3.stex" ]
 
 [params]
 

@@ -13,7 +13,7 @@ onready var dialogue_box = get_tree().get_root().get_node("Main_Scene").find_nod
 onready var clock = get_tree().get_root().get_node("Main_Scene").find_node("clock")
 
 onready var player = get_tree().get_root().get_node("Main_Scene").find_node("player")
-
+onready var root = get_tree().get_current_scene()
 
 var arrow_index
 var arrow_starting_pos
@@ -22,7 +22,7 @@ var active = true
 var timer2
 
 func _ready():
-	Global.connect("choice_executed", self, "_on_choice_executed")
+	root.connect("choice_executed", self, "_on_choice_executed")
 	anim.play("come_in")
 	arrow_starting_pos = arrow.rect_position
 	arrow_index = 0
@@ -91,9 +91,9 @@ func execute_option(index):
 	active = false
 	if index != n_choices -1:
 		assert(options[index] in Global.activities_dict)
-		if can_perform_activity(options[index]):
-			Global.perform_activity(options[index])
-			Global.emit_signal("choice_executed")
+		if Global.can_perform_activity(options[index]):
+			root.perform_activity(options[index])
+			root.emit_signal("choice_executed")
 		else:
 			player.show_bubble("I can't do it right now...")
 			execute_null_action()
@@ -123,17 +123,7 @@ func execute_null_action():
 		queue_free()
 		pass
 
-func can_perform_activity(activity_name):
-	var sanity_bonus = int(Global.activities_dict[activity_name]["Sanity"])
-	var energy_bonus = int(Global.activities_dict[activity_name]["Energy"])
-	var productivity_bonus = int(Global.activities_dict[activity_name]["Productivity"])
-	var time_spent = int(Global.activities_dict[activity_name]["Time"])
-	
-	if Global.sanity + sanity_bonus < 0 or Global.energy + energy_bonus < 0 or Global.productivity + productivity_bonus < 0:
-		return false
-	else:
-		return true
-	pass
+
 	
 
 func resize_bg(amount):

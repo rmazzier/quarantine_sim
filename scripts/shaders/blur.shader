@@ -3,8 +3,8 @@ shader_type canvas_item;
 uniform float variance = 1.;
 
 const float PI = 3.14;
-const int k = 10;
-const int m = 10;
+const int k = 2;
+const int m = 2;
 
 float gaussian(vec2 pos){
 	float factor = 1. / (2. * PI * variance);

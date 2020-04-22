@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/dialogue/fonts/Back to School.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/Title_Screen.gd" type="Script" id=2]
+[ext_resource path="res://assets/title_screen/title_screen_0006_Quit.png" type="Texture" id=3]
+[ext_resource path="res://assets/title_screen/title_screen_0003_Quit_desat.png" type="Texture" id=4]
+[ext_resource path="res://assets/title_screen/title_screen_0004_Settings_desat.png" type="Texture" id=5]
+[ext_resource path="res://assets/title_screen/title_screen_0005_Settings.png" type="Texture" id=6]
+[ext_resource path="res://assets/title_screen/title_screen_0001_Load_desat.png" type="Texture" id=7]
+[ext_resource path="res://assets/title_screen/title_screen_0002_New_desat.png" type="Texture" id=8]
+[ext_resource path="res://assets/title_screen/title_screen_0007_Load.png" type="Texture" id=9]
+[ext_resource path="res://assets/title_screen/title_screen_0008_New.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 180
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "title_anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 120, 100 ), Vector2( 120, 80 ) ]
+}
+
+[node name="Title_Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.68323
+margin_bottom = -3.68323
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -840.0
+margin_top = -443.587
+margin_right = 1123.0
+margin_bottom = -223.586
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.145098, 0.176471, 0.239216, 1 )
+text = "Quarantine Simulator"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_anim" type="AnimationPlayer" parent="."]
+autoplay = "title_anim"
+anims/title_anim = SubResource( 2 )
+
+[node name="new_button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.4999
+margin_top = -140.0
+margin_right = 87.5
+margin_bottom = -59.0
+focus_neighbour_bottom = NodePath("../load_button")
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 10 )
+
+[node name="load_button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.5
+margin_top = -20.0
+margin_right = 110.5
+margin_bottom = 62.0
+focus_neighbour_top = NodePath("../new_button")
+focus_neighbour_bottom = NodePath("../settings_button")
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 9 )
+
+[node name="settings_button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -169.5
+margin_top = 95.0
+margin_right = 169.5
+margin_bottom = 212.0
+focus_neighbour_top = NodePath("../load_button")
+focus_neighbour_bottom = NodePath("../quit_button")
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.4999
+margin_top = 230.0
+margin_right = 82.5
+margin_bottom = 317.0
+focus_neighbour_top = NodePath("../settings_button")
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="new_button" to="." method="_on_new_button_pressed"]

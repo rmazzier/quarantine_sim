@@ -231,7 +231,7 @@ radius = 26.6113
 height = 27.182
 
 [node name="player" type="KinematicBody2D"]
-position = Vector2( 1127.8, 654.125 )
+position = Vector2( 986.856, 589.526 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -269,6 +269,7 @@ cast_to = Vector2( 0, 100 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+limit_top = -80
 
 [node name="player_bubble" parent="." instance=ExtResource( 3 )]
 visible = false

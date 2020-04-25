@@ -2,6 +2,7 @@ extends Node
 
 onready var hud = find_node("stats_wheel")
 onready var clock = find_node("clock")
+onready var mother = find_node("mother")
 
 signal choice_executed
 signal dialog_finished
@@ -43,4 +44,6 @@ func perform_activity(activity_name):
 			add_energy(energy_bonus)
 		if productivity_bonus != 0 :
 			add_productivity(productivity_bonus)
+		if mother.on_screen == false:
+			mother.perform_random_activity()
 	pass

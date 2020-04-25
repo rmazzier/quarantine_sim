@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://assets/house_final/room_final_0001_porta_camear.png" type="Texture" id=1]
 [ext_resource path="res://assets/house_final/room_final_0004_suff_bagno.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://scenes/pause_menu.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/house_final/room_final_0006_pezzo_cucina.png" type="Texture" id=21]
 [ext_resource path="res://scripts/main_scene.gd" type="Script" id=22]
+[ext_resource path="res://scenes/mother.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 218.478, 105.965 )
@@ -767,6 +768,9 @@ z_as_relative = false
 texture = ExtResource( 2 )
 
 [node name="colors" type="Node2D" parent="room"]
+
+[node name="mother" parent="room" instance=ExtResource( 23 )]
+position = Vector2( -2164.41, -399.404 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
